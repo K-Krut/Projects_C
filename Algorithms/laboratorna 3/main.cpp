@@ -21,7 +21,7 @@ void create_decrease(int arr[], int n){
     }
 }
 
-void random_data(int arr[], int n) {//функція для створення рандомного масиву
+void random_data(int arr[], int n) {//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї Г±ГІГўГ®Г°ГҐГ­Г­Гї Г°Г Г­Г¤Г®Г¬Г­Г®ГЈГ® Г¬Г Г±ГЁГўГі
     for (int i = 0; i < n - 1; ++i)
         arr[i] = rand() / (RAND_MAX / (n - i) + 1);
          //arr[i] = rand() % 10000;
@@ -29,52 +29,52 @@ void random_data(int arr[], int n) {//функція для створення рандомного масиву
 
 void count_sort(int array[], int n) {
 
-    int output[SIZE3];//массив для збереження відсортованого смасиву
-    int count[SIZE3];//масив для підрухунку кількості однакових елементів
-    int max_el = array[0];//максимальний елемент - перщий елемент
+    int output[SIZE3];//Г¬Г Г±Г±ГЁГў Г¤Г«Гї Г§ГЎГҐГ°ГҐГ¦ГҐГ­Г­Гї ГўВіГ¤Г±Г®Г°ГІГ®ГўГ Г­Г®ГЈГ® Г±Г¬Г Г±ГЁГўГі
+    int count[SIZE3];//Г¬Г Г±ГЁГў Г¤Г«Гї ГЇВіГ¤Г°ГіГµГіГ­ГЄГі ГЄВіГ«ГјГЄГ®Г±ГІВі Г®Г¤Г­Г ГЄГ®ГўГЁГµ ГҐГ«ГҐГ¬ГҐГ­ГІВіГў
+    int max_el = array[0];//Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­ГЁГ© ГҐГ«ГҐГ¬ГҐГ­ГІ - ГЇГҐГ°Г№ГЁГ© ГҐГ«ГҐГ¬ГҐГ­ГІ
 
-    for (int i = 1; i < n; ++i) {//пошук найбільшого елемента в масиві
+    for (int i = 1; i < n; ++i) {//ГЇГ®ГёГіГЄ Г­Г Г©ГЎВіГ«ГјГёГ®ГЈГ® ГҐГ«ГҐГ¬ГҐГ­ГІГ  Гў Г¬Г Г±ГЁГўВі
         if (array[i] > max_el)
             max_el = array[i];
     }
 
-    for (int i = 0; i <= max_el; ++i)//обнулення масиву count[]
+    for (int i = 0; i <= max_el; ++i)//Г®ГЎГ­ГіГ«ГҐГ­Г­Гї Г¬Г Г±ГЁГўГі count[]
         count[i] = 0;
 
-    for (int i = 0; i < n; ++i)//запис кількості повторень кожного елемента
+    for (int i = 0; i < n; ++i)//Г§Г ГЇГЁГ± ГЄВіГ«ГјГЄГ®Г±ГІВі ГЇГ®ГўГІГ®Г°ГҐГ­Гј ГЄГ®Г¦Г­Г®ГЈГ® ГҐГ«ГҐГ¬ГҐГ­ГІГ 
         count[array[i]]++;
 
     for (int i = 1; i <= max_el; ++i)
         count[i] += count[i - 1];
 
-    for (int i = n - 1; i >= 0; --i) {//пошук індексу кожного елемента в оригінальному масиві
-        output[count[array[i]] - 1] = array[i];//та розміщення елементів в output[]
+    for (int i = n - 1; i >= 0; --i) {//ГЇГ®ГёГіГЄ ВіГ­Г¤ГҐГЄГ±Гі ГЄГ®Г¦Г­Г®ГЈГ® ГҐГ«ГҐГ¬ГҐГ­ГІГ  Гў Г®Г°ГЁГЈВіГ­Г Г«ГјГ­Г®Г¬Гі Г¬Г Г±ГЁГўВі
+        output[count[array[i]] - 1] = array[i];//ГІГ  Г°Г®Г§Г¬ВіГ№ГҐГ­Г­Гї ГҐГ«ГҐГ¬ГҐГ­ГІВіГў Гў output[]
         --count[array[i]];
     }
 
     for (int i = 0; i < n; ++i)
-        array[i] = output[i];//копіювання елементів відсортованих в оригінальний масив
+        array[i] = output[i];//ГЄГ®ГЇВіГѕГўГ Г­Г­Гї ГҐГ«ГҐГ¬ГҐГ­ГІВіГў ГўВіГ¤Г±Г®Г°ГІГ®ГўГ Г­ГЁГµ Гў Г®Г°ГЁГЈВіГ­Г Г«ГјГ­ГЁГ© Г¬Г Г±ГЁГў
 }
 
 void select_sort(int arr[], int n) {
-    for(int i = 0; i < n - 1; ++i) {//прохід по всіх елементах масиву
+    for(int i = 0; i < n - 1; ++i) {//ГЇГ°Г®ГµВіГ¤ ГЇГ® ГўГ±ВіГµ ГҐГ«ГҐГ¬ГҐГ­ГІГ Гµ Г¬Г Г±ГЁГўГі
         int index = i; //index of min el
 
-        for(int j = i + 1; j < n; ++j){//пошук мінімального елемента в масиві
+        for(int j = i + 1; j < n; ++j){//ГЇГ®ГёГіГЄ Г¬ВіГ­ВіГ¬Г Г«ГјГ­Г®ГЈГ® ГҐГ«ГҐГ¬ГҐГ­ГІГ  Гў Г¬Г Г±ГЁГўВі
             if (arr[j] < arr[index])
                 index = j;
         }
-        swap(arr[index], arr[i]);//мінімальний елемент міняється місцями з першим
+        swap(arr[index], arr[i]);//Г¬ВіГ­ВіГ¬Г Г«ГјГ­ГЁГ© ГҐГ«ГҐГ¬ГҐГ­ГІ Г¬ВіГ­ГїВєГІГјГ±Гї Г¬ВіГ±Г¶ГїГ¬ГЁ Г§ ГЇГҐГ°ГёГЁГ¬
     }
 }
 
-void print_data(int array[], int n) {//функція друку масиву
+void print_data(int array[], int n) {//ГґГіГ­ГЄГ¶ВіГї Г¤Г°ГіГЄГі Г¬Г Г±ГЁГўГі
     for (int i = 0; i < n; ++i)
         cout << array[i] << ' ';
     cout << "\n";
 }
 
-auto test_count(int arr[], int n){//функція для тестування тривалості сортування підрахуноком
+auto test_count(int arr[], int n){//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГІГҐГ±ГІГіГўГ Г­Г­Гї ГІГ°ГЁГўГ Г«Г®Г±ГІВі Г±Г®Г°ГІГіГўГ Г­Г­Гї ГЇВіГ¤Г°Г ГµГіГ­Г®ГЄГ®Г¬
     auto begin = steady_clock::now();//
     count_sort(arr, n);
     auto elapsed_ms = duration_cast < milliseconds > (steady_clock::now() - begin);
@@ -82,7 +82,7 @@ auto test_count(int arr[], int n){//функція для тестування тривалості сортування
     return elapsed_ms.count();
 }
 
-auto test_select(int arr[], int n) {//функція для тестування тривалості сортування вибіркою
+auto test_select(int arr[], int n) {//ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГІГҐГ±ГІГіГўГ Г­Г­Гї ГІГ°ГЁГўГ Г«Г®Г±ГІВі Г±Г®Г°ГІГіГўГ Г­Г­Гї ГўГЁГЎВіГ°ГЄГ®Гѕ
     auto begin = steady_clock::now();
     select_sort(arr, n);
     auto elapsed_ms = duration_cast < nanoseconds > (steady_clock::now() - begin);
@@ -90,7 +90,7 @@ auto test_select(int arr[], int n) {//функція для тестування тривалості сортуван
     return elapsed_ms.count();
 }
 
-void show(int a[], int b[], int n){// функція для виведення результату тестування функцій сортування
+void show(int a[], int b[], int n){// ГґГіГ­ГЄГ¶ВіГї Г¤Г«Гї ГўГЁГўГҐГ¤ГҐГ­Г­Гї Г°ГҐГ§ГіГ«ГјГІГ ГІГі ГІГҐГ±ГІГіГўГ Г­Г­Гї ГґГіГ­ГЄГ¶ВіГ© Г±Г®Г°ГІГіГўГ Г­Г­Гї
     cout << "count sort\n";
     cout << "increase\n";
     create_increase(a, n); //if (n == SIZE) print_data(a , n);
@@ -133,437 +133,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//auto elapsed_ms = duration_cast < nanoseconds > (steady_clock::now() - begin);
-
-//cout << "increase   \n" << test_count(a, n)  << " ms" << endl;
-
-
-   // auto end = steady_clock::now();
-   // auto elapsed_ms = duration_cast < milliseconds > (end - begin);
-
-
-
-//void show1(int a[], int b[], int n){// функція для виведення результату тестування функцій сортування
-//    cout << "count sort\n";
-//    create_increase(a, n); print_data(a , n);
-//    cout << "increase   \n" << test_count(a, n)  << "ms" << endl;
-//    random_data(a, n); print_data(a , n);
-//    cout << "random   \n" << test_count(a, n)  <<"ms" <<  endl;
-//    create_decrease(a, n);  print_data(a , n);
-//    cout << "decrease  \n" << test_count(a, n)  << "ms" << endl;
-//
-//    cout << "\nselect sort\n";
-//    create_increase(b, n);  print_data(a , n);
-//    cout << "increase   \n" << test_select(b, n)  << "ms" <<  endl;
-//    random_data(b, n);  print_data(a , n);
-//    cout << "random   \n" << test_select(b, n)  << "ms" << endl;
-//    create_decrease(b, n);  print_data(a , n);
-//    cout << "decrease   \n" << test_select(b, n)  << "ms" << endl;
-//}
-
-
-
-
-
-
-
-
-
-
-//#include <iostream>
-//#include <chrono>
-//
-//#define SIZE 20
-//#define SIZE2 5000
-//#define SIZE3 50000
-//
-//using namespace std;
-//using namespace chrono;
-//
-//void create_increase(int arr[], int n){
-//    for (int i = 0; i < n; ++i)
-//        arr[i] = i + 1;
-//}
-//
-//void create_decrease(int arr[], int n){
-//    int j = 0;
-//    for (int i = n; i > 0; --i) {
-//            arr[j] = i;
-//            ++j;
-//    }
-//}
-//
-//void random_data(int arr[], int n) {//функція для створення рандомного масиву
-//    for (int i = 0; i < n - 1; ++i)
-//        arr[i] = rand() / (RAND_MAX / (n - i) + 1);
-//}
-//
-//void count_sort(int array[], int n) {
-//
-//    int output[SIZE3];//массив для збереження відсортованого смасиву
-//    int count[SIZE3];//масив для підрухунку кількості однакових елементів
-//    int max_el = array[0];//максимальний елемент - перщий елемент
-//
-//    for (int i = 1; i < n; ++i) {//пошук найбільшого елемента в масиві
-//        if (array[i] > max_el)
-//            max_el = array[i];
-//    }
-//
-//    for (int i = 0; i <= max_el; ++i)//обнулення масиву count[]
-//        count[i] = 0;
-//
-//    for (int i = 0; i < n; ++i)//запис кількості повторень кожного елемента
-//        count[array[i]]++;
-//
-//    for (int i = 1; i <= max_el; ++i)
-//        count[i] += count[i - 1];
-//
-//    for (int i = n - 1; i >= 0; --i) {//пошук індексу кожного елемента в оригінальному масиві
-//        output[count[array[i]] - 1] = array[i];//та розміщення елементів в output[]
-//        --count[array[i]];
-//    }
-//
-//    for (int i = 0; i < n; ++i)
-//        array[i] = output[i];//копіювання елементів відсортованих в оригінальний масив
-//}
-//
-//void select_sort(int arr[], int n) {
-//    for(int i = 0; i < n - 1; ++i) {//прохід по всіх елементах масиву
-//        int index = i; //index of min el
-//
-//        for(int j = i + 1; j < n; ++j)//пошук мінімального елемента в масиві
-//            if (arr[j] < arr[index])
-//                index = j;
-//
-//        swap(arr[index], arr[i]);//мінімальний елемент міняється місцями з першим
-//    }
-//}
-//
-//void print_data(int array[], int n) {//функція друку масиву
-//    for (int i = 0; i < n; ++i)
-//        cout << array[i] << ' ';
-//    cout << "\n\n";
-//}
-//
-//void test_count(int arr[], int n){
-//    auto begin = steady_clock::now();
-//    count_sort(arr, n);
-//    auto end = steady_clock::now();
-//    auto elapsed_ms = duration_cast < milliseconds > (end - begin);
-//    cout<<elapsed_ms.count()<<"ms\n";
-//}
-//
-//void test_select(int arr[], int n){
-//    auto begin = steady_clock::now();
-//    select_sort(arr, n);
-//    auto end = steady_clock::now();
-//    auto elapsed_ms = duration_cast < milliseconds > (end - begin);
-//    cout<<elapsed_ms.count()<<"ms\n";
-//}
-//
-//void show(int a[], int b[], int n){
-//
-//    create_increase(a, n);
-//    create_increase(b, n);
-//    test_count(a, n);
-//    test_select(b, n);
-//    random_data(a, n);
-//    random_data(b, n);
-//    test_count(a, n);
-//    test_select(b, n);
-//    create_decrease(a, n);
-//    create_decrease(b, n);
-//    test_count(a, n);
-//    test_select(b, n);
-//}
-//int main() {
-//
-//    srand(time(NULL));
-//
-//    int data[SIZE], data2[SIZE2], data3[SIZE3];
-//    int data_1[SIZE], data2_1[SIZE2], data3_1[SIZE3];
-//
-//    cout << "test data " << endl;
-//    show(data, data_1, SIZE);
-//
-//    cout << "\n\ntest data2 " << endl;
-//    show(data2, data2_1, SIZE2);
-//
-//    cout << "\n\ntest data3 " << endl;
-//    show(data3, data3_1, SIZE3);
-//
-//    return 0;
-//}
-//
-
-
-
-
-
-
-
-
-//
-//#include <iostream>
-//#include <chrono>
-//
-//#define SIZE 20
-//#define SIZE2 5000
-//#define SIZE3 50000
-//
-//using namespace std;
-//using namespace chrono;
-//
-//void create_increase(int arr[], int n){
-//    for (int i = 0; i < n; ++i)
-//        arr[i] = i + 1;
-//}
-//
-//void create_decrease(int arr[], int n){
-//    int j = 0;
-//    for (int i = n; i > 0; --i) {
-//            arr[j] = i;
-//            ++j;
-//    }
-//}
-//
-//void random_data(int arr[], int n) {//функція для створення рандомного масиву
-//    for (int i = 0; i < n - 1; ++i)
-//        arr[i] = rand() / (RAND_MAX / (n - i) + 1);
-//}
-//
-//void count_sort(int array[], int n) {
-//
-//    int output[SIZE3];//массив для збереження відсортованого смасиву
-//    int count[SIZE3];//масив для підрухунку кількості однакових елементів
-//    int max_el = array[0];//максимальний елемент - перщий елемент
-//
-//    for (int i = 1; i < n; ++i) {//пошук найбільшого елемента в масиві
-//        if (array[i] > max_el)
-//            max_el = array[i];
-//    }
-//
-//    for (int i = 0; i <= max_el; ++i)//обнулення масиву count[]
-//        count[i] = 0;
-//
-//    for (int i = 0; i < n; ++i)//запис кількості повторень кожного елемента
-//        count[array[i]]++;
-//
-//    for (int i = 1; i <= max_el; ++i)
-//        count[i] += count[i - 1];
-//
-//    for (int i = n - 1; i >= 0; --i) {//пошук індексу кожного елемента в оригінальному масиві
-//        output[count[array[i]] - 1] = array[i];//та розміщення елементів в output[]
-//        --count[array[i]];
-//    }
-//
-//    for (int i = 0; i < n; ++i)
-//        array[i] = output[i];//копіювання елементів відсортованих в оригінальний масив
-//}
-//
-//void select_sort(int arr[], int n) {
-//    for(int i = 0; i < n - 1; ++i) {//прохід по всіх елементах масиву
-//        int index = i; //index of min el
-//
-//        for(int j = i + 1; j < n; ++j)//пошук мінімального елемента в масиві
-//            if (arr[j] < arr[index])
-//                index = j;
-//
-//        swap(arr[index], arr[i]);//мінімальний елемент міняється місцями з першим
-//    }
-//}
-//
-//void print_data(int array[], int n) {//функція друку масиву
-//    for (int i = 0; i < n; ++i)
-//        cout << array[i] << ' ';
-//    cout << "\n\n";
-//}
-//
-//void test_count(int arr[], int n){
-//    auto begin = steady_clock::now();
-//    count_sort(arr, n);
-//    auto end = steady_clock::now();
-//    auto elapsed_ms = duration_cast < milliseconds > (end - begin);
-//    cout<<elapsed_ms.count()<<"ms\n";
-//}
-//
-//void test_select(int arr[], int n){
-//    auto begin = steady_clock::now();
-//    select_sort(arr, n);
-//    auto end = steady_clock::now();
-//    auto elapsed_ms = duration_cast < milliseconds > (end - begin);
-//    cout<<elapsed_ms.count()<<"ms\n";
-//}
-//
-//void trata(int a[], int b[], int n){
-//    cout << "count sort\n 1 increase 2 random 3 decrease\n";
-//    create_increase(a, n);
-//    test_count(a, n);
-//    random_data(a, n);
-//    test_count(a, n);
-//    create_decrease(a, n);
-//    test_count(a, n);
-//cout << "select sort\n 1 increase 2 random 3 decrease\n";
-//    create_increase(b, n);
-//    test_select(b, n);
-//    random_data(b, n);
-//    test_select(b, n);
-//    create_decrease(b, n);
-//    test_select(b, n);
-//}
-//int main() {
-//
-//    srand(time(NULL));
-//
-//    int data[SIZE], data2[SIZE2], data3[SIZE3];
-//    int data_1[SIZE], data2_1[SIZE2], data3_1[SIZE3];
-//
-//    cout << "test data " << endl;
-//    trata(data, data_1, SIZE);
-//
-//    cout << "\n\ntest data2 " << endl;
-//        trata(data2, data2_1, SIZE2);
-//
-//    cout << "\n\ntest data3 " << endl;
-//        trata(data3, data3_1, SIZE3);
-//
-//    return 0;
-//}
-
-
-
-//
-//    int data[SIZE], data2[SIZE2],data3[SIZE3];
-//
-//    create_increase(data, SIZE);
-//    create_increase(data2, SIZE2);
-//    create_increase(data3, SIZE3);
-//
-//    create_decrease(data, SIZE);
-//    create_decrease(data2, SIZE2);
-//    create_decrease(data3, SIZE3);
-//
-//    random_data(data, SIZE);
-//    random_data(data2, SIZE2);
-//    random_data(data3, SIZE3);
-//
-//
-//    cout << "test data " << endl;
-//    test_count(data, SIZE);
-//    test_count(data, SIZE);
-//    test_select(data, SIZE);
-//
-//    cout << "\n\ntest data2 " << endl;
-//    test_count(data2, SIZE2);
-//    test_count(data2, SIZE2);
-//    test_select(data2, SIZE2);
-//
-//    cout << "\n\ntest data3 " << endl;
-//    test_count(data3, SIZE3);
-//    test_count(data3, SIZE3);
-//    test_select(data3, SIZE3);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//    int data_d1[SIZE], data2_d1[SIZE2],data3_d1[SIZE3];
-//    int data_d2[SIZE], data2_d2[SIZE2],data3_d2[SIZE3];
-//    int data_r1[SIZE], data2_r1[SIZE2],data3_r1[SIZE3];
-//    int data_r2[SIZE], data2_r2[SIZE2],data3_r2[SIZE3];
-//    int data_i1[SIZE], data2_i1[SIZE2],data3_i1[SIZE3];
-//    int data_i2[SIZE], data2_i2[SIZE2],data3_i2[SIZE3];
-//
-//    create_decrease(data_d1, SIZE);
-//    create_decrease(data_d2, SIZE);
-//    create_decrease(data2_d1, SIZE2);
-//    create_decrease(data2_d2, SIZE2);
-//    create_decrease(data3_d1, SIZE3);
-//    create_decrease(data3_d2, SIZE3);
-//
-//    random_data(data_r1, SIZE);
-//    random_data(data_r2, SIZE);
-//    random_data(data2_r1, SIZE2);
-//    random_data(data2_r2, SIZE2);
-//    random_data(data3_r1, SIZE3);
-//    random_data(data3_r2, SIZE3);
-//
-//
-//    create_increase(data_i1, SIZE);
-//    create_increase(data_i2, SIZE);
-//    create_increase(data2_i1, SIZE2);
-//    create_increase(data2_i2, SIZE2);
-//    create_increase(data3_i1, SIZE3);
-//    create_increase(data3_i2, SIZE3);
-//
-//
-//    cout << "test data " << endl;
-//    test_count(data_d1, SIZE);
-//    test_count(data_d2, SIZE);
-//    test_count(data_r1, SIZE);
-//    test_select(data_r2, SIZE);
-//    test_select(data_i1, SIZE);
-//    test_select(data_i2, SIZE);
-//
-//    cout << "\n\ntest data2 " << endl;
-//    test_count(data2_d1, SIZE2);
-//    test_count(data2_d2, SIZE2);
-//    test_count(data2_r1, SIZE2);
-//    test_select(data2_r2, SIZE2);
-//    test_select(data2_i1, SIZE2);
-//    test_select(data2_i2, SIZE2);
-//
-//    cout << "\n\ntest data3 " << endl;
-//    test_count(data3_d1, SIZE3);
-//    test_count(data3_d2, SIZE3);
-//    test_count(data3_r1, SIZE3);
-//    test_select(data3_r2, SIZE3);
-//    test_select(data3_i1, SIZE3);
-//    test_select(data3_i2, SIZE3);
